@@ -1,0 +1,27 @@
+defaults:
+  - _self_
+  - evaluation_fn@_global_: standard
+  - ../dataset@_global_: omniglot
+
+experiment_path: '.'
+model_name: learner_${iteration}.net
+iteration: 40000
+reinit_memory: true
+seed: 1
+
+device: cuda
+log_eval_every: 750
+
+
+eval_folder: eval_${iteration}${evaluation_name}
+relative_subdir: ${eval_folder}
+timestamp: ${now:%Y.%m.%d}_${now:%H%M%S}_${seed}
+
+# For tune_lr.py
+tune_start_lr:
+tune_override_lr: false
+tune_criterion: final
+
+hydra:
+  run:
+    dir: ./${experiment_path}/${relative_subdir}

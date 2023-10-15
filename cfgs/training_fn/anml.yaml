@@ -1,0 +1,26 @@
+training_fn_name: temp
+
+training_steps: 40000
+classes_per_task: 1
+task_batch_size: 20
+all_tasks_batch_size: 64
+meta_batch_size: 1
+separate_validation_data: false
+task_validation_batch_size: 5
+
+training_function:
+  _target_: training_function.continual_meta_training
+  dataset_name: ${dataset_name}
+  trainer:
+  training_steps: ${training_steps}
+  classes_per_task: ${classes_per_task}
+  task_batch_size: ${task_batch_size}
+  all_tasks_batch_size: ${all_tasks_batch_size}
+  separate_validation_data: ${separate_validation_data}
+  task_validation_batch_size: ${task_validation_batch_size}
+  meta_batch_size: ${meta_batch_size}
+  detect_anomaly: ${detect_anomaly}
+  device: ${device}
+  log_training_every: ${log_training_every}
+  log_evaluation_every: ${log_evaluation_every}
+  save_weights_every: ${save_weights_every}

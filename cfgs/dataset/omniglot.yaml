@@ -1,0 +1,7 @@
+dataset_name: omniglot
+
+dataset_mean: 236.04736 #0.92206 * 256
+dataset_std: 5522.06336 #0.08426 * 256 * 256
+
+num_classes: 1000
+data_size: [3, 28, 28]

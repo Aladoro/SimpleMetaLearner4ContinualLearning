@@ -1,0 +1,9 @@
+meta_lr_scheduler_name: 'No'
+
+
+warmup_steps: 4000
+
+meta_lr_scheduler:
+meta_lr_scheduler_kwargs:
+
+

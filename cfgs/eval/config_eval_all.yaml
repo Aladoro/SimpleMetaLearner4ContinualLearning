@@ -1,0 +1,16 @@
+defaults:
+  - config_eval
+  - _self_
+
+eval_folder: eval_all${evaluation_name}
+relative_subdir: ${eval_folder}
+timestamp: ${now:%Y.%m.%d}_${now:%H%M%S}_${seed}
+
+metric: final
+min_iteration_steps_diff: 100
+eval_seeds: [1]
+scratch_mode: false
+
+hydra:
+  run:
+    dir: ./${experiment_path}/${relative_subdir}

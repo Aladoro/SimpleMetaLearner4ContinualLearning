@@ -1,0 +1,14 @@
+#defaults:
+#  - _self_
+#  - ../memory@_global_: reservoir
+
+architecture_name: anmlOrig
+
+architecture_meta:
+  representation_size: 2304
+
+networks:
+  _target_: original_architectures.original_anml_network
+  dataset_name: ${dataset_name}
+  fixed_rln: ${fixed_rln}
+

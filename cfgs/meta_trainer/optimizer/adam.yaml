@@ -1,0 +1,5 @@
+meta_optimizer_name: mO${meta_optim_name}LR${meta_lr}sched${meta_lr_scheduler_name}
+
+meta_optim_name: Adam
+meta_optim_kwargs: {}
+meta_lr: 1e-3

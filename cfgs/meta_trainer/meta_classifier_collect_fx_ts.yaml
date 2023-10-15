@@ -1,0 +1,17 @@
+defaults:
+  - meta_classifier
+  - _self_
+
+# PPO params
+trainer_name: temp
+
+
+collect_meta_loss_every: ${inner_update_steps}
+inner_total_samples: ${task_batch_size}
+inner_update_steps: 1
+
+trainer:
+  inner_update_steps: ${inner_update_steps}
+  inner_total_samples: ${inner_total_samples}
+  collect_meta_loss_every: ${collect_meta_loss_every}
+  keep_indexing_first_step_optim: false

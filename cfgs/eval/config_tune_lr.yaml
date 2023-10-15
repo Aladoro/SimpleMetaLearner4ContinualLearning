@@ -1,0 +1,19 @@
+defaults:
+  - config_eval
+  - _self_
+
+eval_folder: eval_${iteration}${evaluation_name}
+relative_subdir: ${eval_folder}
+timestamp: ${now:%Y.%m.%d}_${now:%H%M%S}_${seed}
+
+# For tune_lr.py
+tune_start_lr:
+tune_override_lr: false
+tune_criterion: final
+tune_max_iter: 5
+tune_base_options: [1.0, 0.3, 0.1, 0.03, 0.01, 0.003, 0.001, 0.0003, 0.0001]
+tune_additional_options: []
+
+hydra:
+  run:
+    dir: ./${experiment_path}/${relative_subdir}

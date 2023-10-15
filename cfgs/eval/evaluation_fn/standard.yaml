@@ -1,0 +1,33 @@
+evaluation_name: _testOnTrainClasses${meta_test_on_train}
+
+seed: 1
+
+total_tasks: 600
+classes_per_task: 1
+
+training_batch_size: 1
+evaluation_batch_size: 200
+epochs: 1
+meta_test_on_train: false
+
+
+evaluation_function:
+  _target_: evaluation_function.evaluate_continual_learner
+  learner:
+  optimizer:
+  dataset_name: ${dataset_name}
+  total_tasks: ${total_tasks}
+  classes_per_task: ${classes_per_task}
+  training_batch_size: ${training_batch_size}
+  evaluation_batch_size: ${evaluation_batch_size}
+  device: ${device}
+  freeze_components:
+  reinit_components:
+  #reinit_fn: ${reinit_fn} - change to string
+  reinit_memory: ${reinit_memory}
+  epochs: ${epochs}
+  meta_test_on_train: ${meta_test_on_train}
+  learner_kwargs: ${learner_kwargs}
+  log_eval_every: ${log_eval_every}
+
+eval_kwargs:

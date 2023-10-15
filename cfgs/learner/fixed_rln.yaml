@@ -1,0 +1,26 @@
+defaults:
+  - _self_
+  - architecture@_global_: anml_original
+learner_name: fixed_rln/${architecture_name}_arch
+
+
+fixed_rln: true
+clip_meta_gradient:
+
+learner:
+  _target_: learning_networks.OriginalLearningNetwork
+  networks: ${networks}
+  neuromodulation: false
+  log_meta_gradient_every: ${log_meta_gradient_every}
+
+eval_kwargs:
+  freeze_components: ['rln_layers']
+  reinit_components: ['pln_layers']
+  learner_kwargs:
+    inner_params:
+  optimizer:
+    _target_: training_utils.torch.optim.Adam
+    lr: 1e-3
+
+log_meta_gradient_every: -1
+

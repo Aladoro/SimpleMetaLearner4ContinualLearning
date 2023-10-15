@@ -1,0 +1,26 @@
+defaults:
+  - _self_
+  - learner@_global_: fixed_rln
+  - meta_trainer@_global_: meta_classifier_collect_fx_ts
+  - training_fn@_global_: anml
+  - dataset@_global_: omniglot
+
+seed: 1
+detect_anomaly: false
+device: cuda
+log_training_every: 40
+log_evaluation_every: 2000
+save_weights_every: 5000
+
+logging_folder: exp_local
+experiment_suffix: ''
+algorithm_name: temp_run
+
+final_eval_runs: 3
+
+tune_lr: false
+eval_all: false
+
+hydra:
+  run:
+    dir: ./${logging_folder}/${dataset_name}/${algorithm_name}/${now:%Y.%m.%d}_${now:%H%M%S}_${seed}

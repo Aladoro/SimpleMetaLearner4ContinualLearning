@@ -1,0 +1,24 @@
+learner_name: ANML_orig
+
+learner:
+  _target_: learning_networks.OriginalLearningNetwork
+  networks:
+    _target_: original_architectures.original_anml_network
+    dataset_name: ${dataset_name}
+  neuromodulation: true
+  log_meta_gradient_every: ${log_meta_gradient_every}
+
+fixed_rln: false
+
+eval_kwargs:
+  freeze_components: ['rln_layers', 'neuromod_layers']
+  reinit_components: ['pln_layers']
+  learner_kwargs:
+    inner_params:
+  optimizer:
+    _target_: training_utils.torch.optim.Adam
+    lr: 1e-3
+
+
+log_meta_gradient_every: -1
+
